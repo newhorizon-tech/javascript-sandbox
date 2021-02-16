@@ -2,15 +2,23 @@ const head = document.getElementById('heading');
 
 const testbutton = document.getElementById('test');
 
-console.log(testbutton);
-console.log(head);
+const body = document.querySelector("body");
 
-// const testbutton = document.querySelector("#test-button")
+const h1 = document.querySelector("h1");
 
-// testbutton.addEventListener("click", () =>{
-//   console.log("testbutton")
-//   alert("The Test Button works!")} );
+const paras = document.querySelectorAll("p");
+
+
+function ParaModify(p, text) {
+  p.textContent = "Cool!"
+}
+
+function BackgroundModify(element, color){
+  element.style.background = color;
+}
 
 testbutton.onclick = function() {
-  alert("The Test Button works!");
+  let msg = document.querySelector("#msg").value;
+  BackgroundModify(body, "green")
+  h1.textContent = msg + "!"
 };
