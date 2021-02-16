@@ -1,12 +1,14 @@
-const head = document.getElementById('heading');
+const head = document.querySelector('#heading');
 
-const testbutton = document.getElementById('test');
+const testbutton = document.querySelector('#test');
 
 const body = document.querySelector("body");
 
 const h1 = document.querySelector("h1");
 
 const paras = document.querySelectorAll("p");
+
+let counter = 0;
 
 
 function ParaModify(p, text) {
@@ -21,12 +23,12 @@ testbutton.onclick = function() {
   let msg = document.querySelector("#msg").value;
   let color = document.querySelector("#color-input").value;
 
-  h1.textContent = msg + "!";
-  let counter = 1;
+  counter++;
+
+  h1.textContent = "Counter" + counter + ' ' + msg + '!';
 
   for (p of paras) {
-    ParaModify(p, counter);
-    counter = counter+1;
+    ParaModify(p, Math.floor(Math.random()*100));
   }
 
   BackgroundModify(body, color);
