@@ -10,7 +10,7 @@ const paras = document.querySelectorAll("p");
 
 
 function ParaModify(p, text) {
-  p.textContent = "Cool!"
+  p.textContent = text;
 }
 
 function BackgroundModify(element, color){
@@ -19,6 +19,16 @@ function BackgroundModify(element, color){
 
 testbutton.onclick = function() {
   let msg = document.querySelector("#msg").value;
-  BackgroundModify(body, "green")
-  h1.textContent = msg + "!"
+  let color = document.querySelector("#color-input").value;
+
+  h1.textContent = msg + "!";
+  let counter = 1;
+
+  for (p of paras) {
+    ParaModify(p, counter);
+    counter = counter+1;
+  }
+
+  BackgroundModify(body, color);
+
 };
