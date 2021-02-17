@@ -16,10 +16,15 @@ function BackgroundModify(element, color) {
 testbutton.onclick = () => {
   const msg = document.querySelector('#msg').value;
   const color = document.querySelector('#color-input').value;
+  const list = document.querySelector('#list');
+
+  const ListItem = document.createElement('li');
+  ListItem.innerHTML = msg;
+
+  list.appendChild(ListItem);
 
   counter += 1;
-
-  head.textContent = `Counter: ${counter} | Message: ${msg}!`;
+  head.textContent = `Counter: ${counter}`;
 
   paras.forEach((p) => {
     ParaModify(p, Math.floor(Math.random() * 100));
