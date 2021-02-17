@@ -1,36 +1,29 @@
 const head = document.querySelector('#heading');
-
 const testbutton = document.querySelector('#test');
-
-const body = document.querySelector("body");
-
-const h1 = document.querySelector("h1");
-
-const paras = document.querySelectorAll("p");
+const body = document.querySelector('body');
+const paras = document.querySelectorAll('p');
 
 let counter = 0;
-
 
 function ParaModify(p, text) {
   p.textContent = text;
 }
 
-function BackgroundModify(element, color){
+function BackgroundModify(element, color) {
   element.style.background = color;
 }
 
-testbutton.onclick = function() {
-  let msg = document.querySelector("#msg").value;
-  let color = document.querySelector("#color-input").value;
+testbutton.onclick = () => {
+  const msg = document.querySelector('#msg').value;
+  const color = document.querySelector('#color-input').value;
 
-  counter++;
+  counter += 1;
 
-  h1.textContent = "Counter" + counter + ' ' + msg + '!';
+  head.textContent = `Counter: ${counter} | Message: ${msg}!`;
 
-  for (p of paras) {
-    ParaModify(p, Math.floor(Math.random()*100));
-  }
+  paras.forEach((p) => {
+    ParaModify(p, Math.floor(Math.random() * 100));
+  });
 
   BackgroundModify(body, color);
-
 };
